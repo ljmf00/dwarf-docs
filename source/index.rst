@@ -6,10 +6,11 @@
 Welcome to DWARF Cheat Sheet!
 ===============================================
 
+Extra documentation about DWARF standard and DWARF vendor-specific extensions
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
 
 
 Indices and tables
