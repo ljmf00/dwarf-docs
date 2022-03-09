@@ -1,0 +1,44 @@
+- name: Child determination encodings
+  description: |
+    These 1-byte encoding values describe wether the debug entry has child
+    entries.
+
+    If the value is `DW_CHILDREN_yes`, the next physically succeeding entry of
+    any debugging information entry using this abbreviation is the first child
+    of that entry. If the 1-byte value following the abbreviation’s tag
+    encoding is `DW_CHILDREN_no`, the next physically succeeding entry of any
+    debugging information entry using this abbreviation is a sibling of that
+    entry. (Either the first child or sibling entries may be null entries).
+  type: enum
+  items:
+    DW_CHILDREN_no:  0x00
+    DW_CHILDREN_yes: 0x01
+  item_type: bool
+
+- name: DWARF package file section identifier encodings
+  description: |
+    These 1-byte encoding values identifies a specific DWARF section:
+
+    |---------------------|------------------------|
+    | Identifier          | Section                |
+    |---------------------|------------------------|
+    | DW_SECT_INFO        | .debug_info.dwo        |
+    | DW_SECT_ABBREV      | .debug_abbrev.dwo      |
+    | DW_SECT_LINE        | .debug_line.dwo        |
+    | DW_SECT_LOCLISTS    | .debug_loclists.dwo    |
+    | DW_SECT_STR_OFFSETS | .debug_str_offsets.dwo |
+    | DW_SECT_MACRO       | .debug_macro.dwo       |
+    | DW_SECT_RNGLISTS    | .debug_rnglists.dwo    |
+    |---------------------|------------------------|
+  type: enum
+  items:
+    DW_SECT_INFO:        1
+    DW_SECT_ABBREV:      3
+    DW_SECT_LINE:        4
+    DW_SECT_LOCLISTS:    5
+    DW_SECT_STR_OFFSETS: 6
+    DW_SECT_MACRO:       7
+    DW_SECT_RNGLISTS:    8
+  type_name: DWSection
+  ctype_name: dw_sect_t
+  item_type: ubyte
